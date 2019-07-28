@@ -77,15 +77,13 @@ function smooth_bilateral(width, height, original, smoothed, sigma_space, sigma_
                 let g1 = original[4 * idx1 + 1];
                 let b1 = original[4 * idx1 + 2];
 
-                // Sigma can be changed here!
-                let sigma = 128;
                 let sum = 0;
                 for (let i = 0; i < 3; i++) {
                   let diff = Math.abs(original[4*idx0 + i] - original[4*idx1 + i]);
                   sum += diff*diff;
                 }
                 sum = Math.sqrt(sum);
-                let w_range = (1/(Math.sqrt(2*Math.PI)*sigma))*Math.exp(-(sum*sum)/(2*sigma*sigma));
+                let w_range = (1/(Math.sqrt(2*Math.PI)*sigma_range))*Math.exp(-(sum*sum)/(2*sigma_range*sigma_range));
 
                 let w = w_space * w_range;
                 r_sum += w * r1;
