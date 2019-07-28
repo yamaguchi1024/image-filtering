@@ -79,7 +79,7 @@ function smooth_bilateral(width, height, original, smoothed, sigma_space, sigma_
 
                 let sum = 0;
                 for (let i = 0; i < 3; i++) {
-                  let diff = Math.abs(original[4*idx0 + i] - original[4*idx1 + i]);
+                  let diff = original[4*idx0 + i] - original[4*idx1 + i];
                   sum += diff*diff;
                 }
                 sum = Math.sqrt(sum);
